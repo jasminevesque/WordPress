@@ -24,7 +24,10 @@
           <em>Original Content by <a href="http://www.wesbos.com">Wes Bos</a></em>
           <br>
           <br>
-          <strong>Your Lead Instructors Today:</strong> 
+          <strong>Your Lead Instructor Today:</strong></p> 
+          <h2>Jasmine Vesque</h2>
+          <p><a href="http://twitter.com/jasmineVesque">@jasmineVesque</a><br />
+          <a href="http://jasminevesque.com">jasminevesque.com</a>
           <br>
         </p>
         <p>Open these slides in a modern browser and use your arrow keys to follow along</p>
