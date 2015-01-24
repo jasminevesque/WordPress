@@ -82,13 +82,13 @@
         <h3>Jargon and Buzz Words - Welcome to our world</h3>
         <div class="build">
           <p><strong>localhost</strong> - / Local Server (MAMP or XAMP) - A small service that runs on your laptop which mimics the functionality of a large, paid server. We are able to work on our website without uploading it anywhere.</p>
-          <p><strong>PHP tags</strong> - PHP is the programming language WordPress is written in. When we need to use PHP, we put it inside <span class="red"> <?php output('<?php and ?>'); ?></span> tags so our server will know to process it as PHP.</p>
+          <p><strong>PHP tags</strong> - PHP is the programming language WordPress is written in. When we need to use PHP, we put it inside <span class="red"> &lt;?php and ?&gt;</span> tags so our server will know to process it as PHP.</p>
           <p><strong>stylesheet</strong> - The style.css file within our theme. From this file we control the colours, fonts, sizes and all style elements for our website.</p>
           <p><strong>Dashboard</strong> - The WordPress back end you see when you first log into your website</p>
           </div>
           </article><article>
           <div class="build">
-          <p><strong>Codex</strong> - The WordPress documentation. Very helpful when you require a reference or assistance with a certain part of WordPress. http://codex.wordpress.org/</p>
+          <p><strong>Codex</strong> - The WordPress documentation. Very helpful when you require a reference or assistance with a certain part of WordPress. <a href="http://codex.wordpress.org/">http://codex.wordpress.org/</a></p>
           <p><strong>Permalinks</strong> - Human readable URL. When turned on, WordPress changes the url structure from something like MySite.com/?p=54 to MySite.com/contact-me</p>
           <p><strong>Theme</strong> - The collection of files that we use to lay out and style our WordPress website. WordPress allows you to easily change and modify themes without losing any of your posts or pages.</p>
           <p><strong>Template</strong> - A specific file within our theme that lays out either an entire page or part of a page. For example, page.php is the template within our theme that lays out the structure for all of our pages</p>
@@ -319,11 +319,9 @@
       <article>
           <p>To embed the image, we use an <code>img</code> tag. Here we will use a template tag to get the full path to the image in our theme folder. We need the <code>path to the image</code> and <code>the file name</code></p>
           
-          <pre><?php output('<img src="<?php bloginfo("template_directory"); ?>/i/portrait.png">')?></pre>
-          
+          <pre>&lt;img src=&quot;&lt;?php bloginfo(&quot;template_directory&quot;); ?&gt;/i/header.png&quot; /&gt;</pre>
           outputs:  
-
-          <pre><?php output('<img src="http://localhost/wordpress/wp-content/themes/ladies-learning-code/i/portrait.png" alt="">');?></pre>
+          <pre>&lt;img src=&quot;http://localhost/wordpress/wp-content/themes/ladies-learning-code/i/header.png&quot; alt=&quot;&quot;&gt;</pre>
 
         </div>
 
@@ -405,16 +403,16 @@
 <p>The <strong>Selector</strong> defines which element the CSS will be applied to.</p>
         <pre>
 
-<?php output('<div class="post"> ... </div>'); ?> 
+&lt;div class=&quot;post&quot;&gt; ... &lt;/div&gt; 
 div.post { ... }
 
-<?php output('<span class="date"> ... </span>'); ?> 
+&lt;span class=&quot;date&quot;&gt; ... &lt;/span&gt; 
 span.date { ... }
 
-<?php output('<span class="category"></span> <div class="meta"></div>'); ?>  
+&lt;span class=&quot;category&quot;&gt;&lt;/span&gt; &lt;div class=&quot;meta&quot;&gt;&lt;/div&gt;  
 span.category, div.meta { … } 
 
-<?php output('<div class="parent"><div class="child"></div></div>'); ?> 
+&lt;div class=&quot;parent&quot;&gt;&lt;div class=&quot;child&quot;&gt;&lt;/div&gt;&lt;/div&gt; 
 div.parent div.child { ... }
 
         </pre>  
@@ -522,7 +520,7 @@ div.parent div.child { ... }
       <article>
         <h3>2. Add a background pattern</h3>
         <p>Find your <code>body</code> selector and add the following code:</p>
-        <pre><?php output("background: url(i/bg1.png);"); ?></pre>
+        <pre>background: url(i/bg1.png);</pre>
         <p>This will pull the files from your <code>i</code> folder within your theme. Take a look at the available 4 images or download your own from <a href="http://subtlepatterns.com/">subtlepatterns.com</a>.</p>
       </article>
 
@@ -614,13 +612,12 @@ div.parent div.child { ... }
       <article>
         <h3>The Code</h3>
         <p>A stripped down look outputting only the title and the content.</p>
-<pre><?php output("<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+<pre>&lt;?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?&gt;
 
-    <h2><?php the_title(); ?></h2>
-    <?php the_content(); ?>
+    &lt;h2&gt;&lt;?php the_title(); ?&gt;&lt;/h2&gt;
+    &lt;?php the_content(); ?&gt;
 
-<?php endwhile; ?>
-"); ?>
+&lt;?php endwhile; ?&gt;
 </pre>
       <h3 class="">Still Confused? Dont Worry!</h3>
       <p>Our WordPress theme comes with the loop.php which handles most of this for you.</p>
@@ -636,7 +633,7 @@ div.parent div.child { ... }
           <p>No knowledge of PHP is required.</p>
           <p>Most template tags only work within the loop</p>
           <p>Others are global and can be used anywhere on the site</p>
-          <p>Remember we used <span class="red"><?php output("<?php echo home_url( '/' ); ?>"); ?></span> in our header?</p>
+          <p>Remember we used <span class="red">&lt;?php echo home_url( '/' ); ?&gt;</span> in our header?</p>
         </div>
       </article>
 
@@ -652,16 +649,16 @@ div.parent div.child { ... }
 
       <article>
         <div class="build">
-          <p><?php output("<?php the_title(); ?>"); ?></p>
-          <p><?php output("<?php the_content(); ?>"); ?></p>
-          <p><?php output("<?php the_excerpt(); ?>"); ?></p>
-          <p><?php output("<?php the_permalink(); ?>"); ?></p>
-          <p><?php output("<?php the_time(); ?>"); ?></p>
-          <p><?php output("<?php the_tags(); ?>"); ?></p>
-          <p><?php output("<?php the_category(); ?>"); ?></p>
-          <p><?php output("<?php comments_template(); ?>"); ?></p>
-          <p><?php output("<?php the_author(); ?>"); ?></p>
-          <p><?php output("<?php the_post_thumbnail(); ?>"); ?></p>
+          <p>&lt;?php the_title(); ?&gt;</p>
+          <p>&lt;?php the_content(); ?&gt;</p>
+          <p>&lt;?php the_excerpt(); ?&gt;</p>
+          <p>&lt;?php the_permalink(); ?&gt;</p>
+          <p>&lt;?php the_time(); ?&gt;</p>
+          <p>&lt;?php the_tags(); ?&gt;</p>
+          <p>&lt;?php the_category(); ?&gt;</p>
+          <p>&lt;?php comments_template(); ?&gt;</p>
+          <p>&lt;?php the_author(); ?&gt;</p>
+          <p>&lt;?php the_post_thumbnail(); ?&gt;</p>
         </div>
       </article>
 
@@ -704,7 +701,7 @@ div.parent div.child { ... }
 
           <p>We will use the template tag <code>the_post_thumbnail()</code> to pull the image in. In single.php look for the comments and use the following code:</p>
 
-          <p><code><?php output("<?php the_post_thumbnail('wide');?>") ?></code></p>
+          <p><code>&lt;?php the_post_thumbnail('wide');?&gt;</code></p>
 
           <p><img src="http://wes.io/V8Ut/post-thumbs" alt=""></p>
         </div>
@@ -731,7 +728,7 @@ div.parent div.child { ... }
       <article>
         <p>Under the closing <code>h1 tag</code>, add the following h3 and template tag:</p>
         <br>
-        <code><?php output("<h3><?php bloginfo('description'); ?></h3>"); ?></code>
+        <code>&lt;h3&gt;&lt;?php bloginfo('description'); ?&gt;&lt;/h3&gt;</code>
 
         <p>This will pull in the text you previously set under settings → General</p>
         <img src="http://wes.io/V82k/settings" alt="">
@@ -793,10 +790,7 @@ div.parent div.child { ... }
       <article>         <p>Your Code should look something like
 this:</p>         <br>         <img src="http://wes.io/V8LA/custom-
 page-template" alt="">       </article>       <article>         <div
-class="build">           <p><strong>Step 3:</strong> We don't want a
-sidebar for this page, so go ahead and delete <span class="red"><?php
-output("<?php get_sidebar(); ?>"); ?></span>. Make sure to save your
-file after this change. </p>           <p><strong>Step 4:</strong> Go
+class="build">           <p><strong>Step 3:</strong> We don't want a sidebar for this page, so go ahead and delete <span class="red">&lt;?php get_sidebar(); ?&gt;</span>. Make sure to save your file after this change. </p>           <p><strong>Step 4:</strong> Go
 to the WordPress dashboard, and edit your contact page.</p>
 <p>You'll now see under "Page Attributes" we have a template
 dropdown.</p>           <p><img src="http://wes.io/MLnn/content"
@@ -808,17 +802,17 @@ view. <img src="http://cl.ly/C2Lt/Screen%20Shot%202011-11-22%20at%2010
         <h3>Building a template for our home page</h3>
         <p>Let's create a new page called <span class="red">page-home.php</span></p>
         <p>This time, fill it with the following Markup:</p>
-<pre><?php output("
-  <?php /* Template Name: Home Page */  ?>
-  <?php get_header(); ?>
+<pre>
+  &lt;?php /* Template Name: Home Page */  ?&gt;
+  &lt;?php get_header(); ?&gt;
 
-  <div class=\"section\">
-    <div class=\"innerWrapper home\">
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;innerWrapper home&quot;&gt;
       coming soon
-    </div> <!-- /.innerWrapper -->
-  </div> <!-- /.section -->
-  <?php get_footer(); ?>
-"); ?></pre>
+    &lt;/div&gt; &lt;!-- /.innerWrapper --&gt;
+  &lt;/div&gt; &lt;!-- /.section --&gt;
+  &lt;?php get_footer(); ?&gt;
+</pre>
 
       </article>
 
@@ -872,7 +866,7 @@ view. <img src="http://cl.ly/C2Lt/Screen%20Shot%202011-11-22%20at%2010
         <p>When you need more functionality, plugins come to the rescue!</p>
         <p>There is a huge community of developers that create plugins that you can install for free.</p>
         <p>Can be as small as adding a popup photo gallery to as large as running a social network!</p>
-        <p>Remember to check the plugins WordPress version, if the plugin has been updated within the last 2 years andcheck out the reviews</p>
+        <p>Remember to check the plugins WordPress version, if the plugin has been updated within the last 2 years and check out the reviews</p>
       </article>
 
       <article>
@@ -948,12 +942,11 @@ view. <img src="http://cl.ly/C2Lt/Screen%20Shot%202011-11-22%20at%2010
           <p><strong>Step 2:</strong> Remember our <span class="red">page-home.php</span>? Open it up again and delete "Coming Soon..."</p>
           <p><strong>Step 3:</strong> We're now going to write our own loop so we can get the page's content.</p>
           <pre>
-<?php output('<div class="welcome">
-  <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+&lt;div class=&quot;welcome&quot;&gt;
+  &lt;?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?&gt;
     
-  <?php endwhile; ?>
-</div>
-') ?>
+  &lt;?php endwhile; ?&gt;
+&lt;/div&gt;
           </pre>
 
         </div>
@@ -961,15 +954,14 @@ view. <img src="http://cl.ly/C2Lt/Screen%20Shot%202011-11-22%20at%2010
 
       <article>
          <div class="build">
-           <p><strong>Step 4:</strong> Inside the loop, we use our template tag <span class="red"><?php output('<?php the_content(); ?>'); ?></span> to fetch the content from our home page.</p>
+           <p><strong>Step 4:</strong> Inside the loop, we use our template tag <span class="red">&lt;?php the_content(); ?&gt;</span> to fetch the content from our home page.</p>
            <p class="small">Our loop now looks like this:</p>
           <pre>
-<?php output('<div class="welcome">
-  <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-    <?php the_content(); ?>
-  <?php endwhile; ?>
-</div>
-') ?>
+&lt;div class=&quot;welcome&quot;&gt;
+  &lt;?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?&gt;
+    &lt;?php the_content(); ?&gt;
+  &lt;?php endwhile; ?&gt;
+&lt;/div&gt;
           </pre>   
            
                  <img src="http://wes.io/V7x1/wow" alt="">
@@ -979,16 +971,15 @@ view. <img src="http://cl.ly/C2Lt/Screen%20Shot%202011-11-22%20at%2010
       <article>
         <div class="build">
           <p>Now that we have our Home content pulling in, lets work on our three columns.</p>
-          <p><strong>Step 5: </strong>Right underneath <span class="red"><?php output('<?php endwhile; ?> </div>');?></span>, create an empty div with the class of homeColumn.</p>
+          <p><strong>Step 5: </strong>Right underneath <span class="red">&lt;?php endwhile; ?&gt; &lt;/div&gt;</span>, create an empty div with the class of homeColumn.</p>
           <pre>
-<?php output('<div class="homeColumn"></div>'); ?></pre>      
-          <p><strong>Step 6:</strong> Inside that div, insert an <span class="red"><?php output("<h3>Column 1</h3>");?></span>.</span></p>
-<pre><?php output('
-<div class="homeColumn">
-  <h3>Column 1</h3>
+&lt;div class=&quot;homeColumn&quot;&gt;&lt;/div&gt;</pre>      
+          <p><strong>Step 6:</strong> Inside that div, insert an <span class="red">&lt;h3&gt;Column 1&lt;/h3&gt;</span>.</span></p>
+<pre>
+&lt;div class=&quot;homeColumn&quot;&gt;
+  &lt;h3&gt;Column 1&lt;/h3&gt;
   
-</div>
-'); ?>
+&lt;/div&gt;
 </pre>
         </div>
       </article>
@@ -997,19 +988,18 @@ view. <img src="http://cl.ly/C2Lt/Screen%20Shot%202011-11-22%20at%2010
       <article>
         <p><strong>Step 7:</strong> Create two more columns with the class of homeColumn. Our code should look like this:</p>
         <pre>
-<?php output('
-  <div class="homeColumn">
-    <h3>Column 1</h3>
-  </div>
 
-  <div class="homeColumn">
-    <h3>Column 2</h3>
-  </div>
+  &lt;div class=&quot;homeColumn&quot;&gt;
+    &lt;h3&gt;Column 1&lt;/h3&gt;
+  &lt;/div&gt;
 
-  <div class="homeColumn">
-    <h3>Column 3</h3>
-  </div>
-') ?>
+  &lt;div class=&quot;homeColumn&quot;&gt;
+    &lt;h3&gt;Column 2&lt;/h3&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;homeColumn&quot;&gt;
+    &lt;h3&gt;Column 3&lt;/h3&gt;
+  &lt;/div&gt;
         </pre>
       </article>
 
@@ -1020,18 +1010,17 @@ view. <img src="http://cl.ly/C2Lt/Screen%20Shot%202011-11-22%20at%2010
           <li>
             Latest Posts:
             <br>
-             <code><?php output("<?php wp_get_archives('type=postbypost&limit=10'); ?>"); ?></code>
+             <code>&lt;?php wp_get_archives('type=postbypost&amp;limit=10'); ?&gt;</code>
           </li>
           <li>List of categories
           <br>
-            <code><?php output("<ul><?php wp_list_categories('title_li='); ?></ul>"); ?></code>
+            <code>&lt;ul&gt;&lt;?php wp_list_categories('title_li='); ?&gt;&lt;/ul&gt;</code>
           </li>
 
           <li>Tag Cloud
           <br>
           <code>
-            <?php output("<?php wp_tag_cloud(); ?>"); ?>
-          </code>
+            &lt;?php wp_tag_cloud(); ?&gt;          </code>
           </li>
           <li>+ More on next slide</li>
         </ul>
@@ -1045,8 +1034,9 @@ view. <img src="http://cl.ly/C2Lt/Screen%20Shot%202011-11-22%20at%2010
         <li>Buy now button for your product</li>
         <li><a href="http://snapwidget.com/" target=_blank>Instagram Widget</a></li>
       </article>
-      <article>
       
+      <article>
+
       <p><strong>Step 9:</strong> You're done! I've provided you with some minimal style in your <span class="red">style.css</span> file in the section marked "CUSTOM HOME PAGE STYLE".</p>
 
       <p>Spend some time working on your site to make it your own. Chat with your tables and mentors to see how you can customize your theme to be totally yours!</p>
@@ -1061,12 +1051,13 @@ view. <img src="http://cl.ly/C2Lt/Screen%20Shot%202011-11-22%20at%2010
         <p>Advanced backend interfaces</p>
         <p>Plugin Development is an whole ‘nother world</p>
         <p>WordCamps and Meetups - The WordPress community is amazing</p>
+        <p><a href="http://wpottawa.org">Ottawa WordPress Group</a> and <a href="http://2014.ottawa.wordcamp.org/">WordCamp Ottawa</a>
       </article>
 
       <article>
         <h3>Making WordPress Live</h3>
         <p>Migrating WordPress, or hosting it so everyone can see it, requires a few steps to make it live.</p>
-        <p>First, you need host. There are tons of great, affordable ones. I recommend using <a href="http://wpengine.com/">WPEngine</a>.</p>
+        <p>First, you need host. There are tons of great, affordable ones. I recommend using <a href="http://greengeeks.ca/">GreenGeeks</a>.</p>
         <p>Second, you will need to follow the migration guide. Here's a video on how to do this: <a href="https://www.youtube.com/watch?v=gk6_lW9INos" target=_blank>youtube.com/watch?v=gk6_lW9INos</a></p>
       </article>
 
